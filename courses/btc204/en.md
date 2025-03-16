@@ -34,11 +34,11 @@ In a world where the confidentiality of financial transactions is gradually beco
 
 Today, on Bitcoin, companies specialize in blockchain analysis. Their core business consists precisely in intruding into your private sphere, in order to compromise the confidentiality of your transactions. In reality, there is no such thing as a "right to privacy" in Bitcoin. So it's up to you, the user, to assert your natural rights and protect the confidentiality of your transactions, because nobody else is going to do it for you.
 
-Bitcoin isn't just about "Number Go Up" and preserving the value of savings. With its unique characteristics and history, it is first and foremost the tool of the counter-economy. Thanks to this formidable invention, you can freely dispose of your money, spend it and accumulate it, without anyone being able to stop you.
+Bitcoin isn't just about "Number Go Up" and preserving the value of savings. With its unique characteristics and history, it is first and foremost the tool of the counter-economy. Thanks to this formidable invention, you can use your money freely - spend it or save it, without anyone stopping you.
 
 Bitcoin offers a peaceful escape from the yoke of the state, allowing you to fully enjoy your natural rights, which cannot be challenged by established laws. Thanks to Satoshi Nakamoto's invention, you have the power to enforce respect for your private property and regain the freedom to contract.
 
-However, Bitcoin is not anonymous by default, which can represent a risk for individuals engaged in the counter-economy, particularly in regions under despotic rule. But this is not the only danger. Since bitcoin is a valuable and incensurable asset, it can be a target for thieves. So protecting your privacy becomes a matter of security too: it can help you prevent hacking and physical assault.
+However, Bitcoin is not anonymous by default, which can represent a risk for individuals engaged in the counter-economy, particularly in regions under despotic rule. But this is not the only danger. Since bitcoin is a valuable and uncensurable asset, it can be a target for thieves. So protecting your privacy becomes a matter of security too: it can help you prevent hacking and physical assault.
 
 As we'll see, although the protocol offers certain confidentiality protections in its own right, it's crucial to use additional tools to optimize and defend this confidentiality.
 
