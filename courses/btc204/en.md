@@ -310,7 +310,7 @@ In layman's terms, there are three main stages in chain analysis:
 
 2. **The identification of known features ;**
 
-3. **The deduction of assumptions **
+3. **The deduction of assumptions**
 
 ![BTC204](assets/fr/026.webp)
 
@@ -322,27 +322,27 @@ One of the aims of blockchain analysis is to group together various activities o
 
 ![BTC204](assets/fr/027.webp)
 
-Think back to the previous chapter. I explained why Bitcoin's privacy model was originally based on the separation of user identity from transactions. It would therefore be tempting to think that blockchain analysis is useless, since even if we manage to aggregate onchain activities, we can't associate them with a real identity.
+Think back to the previous chapter. I explained why Bitcoin's privacy model was originally based on the separation of user identity from transactions. It would therefore be tempting to think that blockchain analysis is useless, since even if we manage to aggregate on-chain activities, we can't associate them with a real identity.
 
 Theoretically, this statement is correct. In the first part of this course, we saw that cryptographic key pairs are used to establish conditions on UTXO. In essence, these key pairs divulge no information about the identity of their holders. So, even if we manage to group together the activities associated with different key pairs, this tells us nothing about the entity behind these activities.
 
 ![BTC204](assets/fr/028.webp)
 
-However, the practical reality is far more complex. There are a multitude of behaviors that can link a real identity to onchain activity. In analysis, this is called an entry point, and there are a multitude of them.
+However, the practical reality is far more complex. There are a multitude of behaviors that can link a real identity to on-chain activity. In analysis, this is called an entry point, and there are a multitude of them.
 
 The most common is KYC (*Know Your Customer*). If you withdraw your Bitcoins from a regulated platform to one of your personal receiving addresses, then some people are able to link your identity to that address. More broadly, an entry point can be any form of interaction between your real life and a Bitcoin transaction. For example, if you publish a receiving address on your social networks, this could be an entry point for analysis. If you make a payment in Bitcoins to your baker, he will be able to associate your face (part of your identity) with a Bitcoin address.
 
-These entry points are virtually unavoidable when using Bitcoin. Although we may seek to restrict their scope, they will always be present. That's why it's crucial to combine methods aimed at preserving your privacy. While maintaining a separation between your real identity and your transactions is an interesting approach, it remains insufficient today. Indeed, if all your onchain activities can be grouped together, then even the smallest entry point is likely to compromise the single layer of confidentiality you've established.
+These entry points are virtually unavoidable when using Bitcoin. Although we may seek to limit their scope, they will always persist. That's why it's crucial to combine methods aimed at preserving your privacy. While maintaining a separation between your real identity and your transactions is a valuable approach, it remains insufficient today. Indeed, if all your on-chain activities can be linked together, then even the smallest entry point is likely to compromise the single layer of confidentiality you've established.
 
 ![BTC204](assets/fr/029.webp)
 
 ### Defending yourself against chain analysis
 
-So we also need to be able to cope with blockchain analysis in our use of Bitcoin. By doing so, we can minimize the aggregation of our activities and limit the impact of an entry point on our privacy.
+So we also need to be equipped to handle blockchain analysis in our use of Bitcoin. By doing so, we can minimize the aggregation of our activities and limit the impact of an entry point on our privacy.
 
 ![BTC204](assets/fr/030.webp)
 
-What better way to counter blockchain analysis than to learn about the methods used in it? If you want to know how to improve your privacy on Bitcoin, you need to understand these methods. This will give you a better grasp of techniques such as coinjoin or payjoin (techniques we'll look at in the final parts of the course), and reduce the mistakes you might make.
+What better way to counter blockchain analysis than to learn about the methods it employs? If you want to improve your privacy on Bitcoin, you need to understand these techniques. This will give you a stronger grasp of tools like CoinJoin or PayJoin (which we'll explore in the final parts of the course), and help reduce the mistakes you might make.
 
 https://planb.network/tutorials/privacy/on-chain/coinjoin-samourai-wallet-e566803d-ab3f-4d98-9136-5462009262ef
 https://planb.network/fr/tutorials/privacy/on-chain/payjoin-848b6a23-deb2-4c5f-a27e-93e2f842140f
@@ -350,24 +350,24 @@ In this, we can draw an analogy with cryptography and cryptanalysis. A good cryp
 
 ### Chain analysis methods
 
-It's important to understand that string analysis is not an exact science. It relies on heuristics derived from previous observations or logical interpretations. These rules allow us to obtain fairly reliable results, but never with absolute precision. In other words, **chain analysis always involves a dimension of probability in the conclusions reached**. For example, it may be possible to estimate with varying degrees of certainty that two addresses belong to the same entity, but total certainty will always be out of reach.
+It's important to understand that chain analysis is not an exact science. It relies on heuristics derived from previous observations or logical interpretations. These rules allow us to obtain fairly reliable results, but never with absolute precision. In other words, **chain analysis always involves a dimension of probability in the conclusions reached**. For example, it may be possible to estimate with varying degrees of certainty that two addresses belong to the same entity, but total certainty will always be out of reach.
 
 The whole point of chain analysis lies precisely in the aggregation of various heuristics to minimize the risk of error. In a way, it's an accumulation of evidence that brings us closer to reality.
 
 These famous heuristics can be grouped into different categories, which we will describe in detail below:
 
 
-- Transaction patterns ;**
-- Transaction-internal heuristics ;**
-- Heuristics external to the transaction.**
+**- Transaction patterns ;**
+**- Transaction-internal heuristics ;**
+**- Heuristics external to the transaction.**
 
 ### Satoshi Nakamoto and chain analysis
 
-The first two chain analysis heuristics were discovered by Satoshi Nakamoto himself. He talks about them in Part 10 of Bitcoin's White Paper. They are :
+The first two chain analysis heuristics were discovered by Satoshi Nakamoto himself. He talks about them in Part 10 of Bitcoin's White Paper. They are:
 
 
-- cIOH (*Common Input Ownership Heuristic*);
-- and address reuse.
+1) CIOH (*Common Input Ownership Heuristic*);
+2) Address reuse.
 
 ![BTC204](assets/fr/031.webp)
 
@@ -389,15 +389,15 @@ In other words, we're only going to look at the number of UTXO in inputs and the
 
 In this section, we'll look together at the main transaction models encountered in chain analysis, and for each model, I'll give you the likely interpretation of this structure, as well as a concrete example.
 
-### Single shipment (or single payment)
+### Single transaction (or single payment)
 
-Let's start with a very common pattern, since it's the one that emerges on most bitcoin payments. The simple payment model is characterized by the consumption of one or more UTXOs as inputs and the production of 2 UTXOs as outputs. This model therefore looks like this:
+Let's start with a very common pattern, as it's the one that appears in most Bitcoin payments. The simple payment model is characterized by the consumption of one or more UTXOs as inputs and the production of two UTXOs as outputs. This model therefore looks like this:
 
 ![BTC204](assets/fr/033.webp)
 
-When we spot this transaction structure on the blockchain, we can already draw an interpretation. As its name suggests, this model indicates that we are in the presence of a sending or payment transaction. The user has consumed his own UTXO in inputs to satisfy in outputs a payment UTXO and an exchange UTXO (money returned to the same user).
+When we spot this transaction structure on the blockchain, we can already draw an interpretation. As its name suggests, this model indicates that we are in the presence of a single transaction or payment. The user has consumed his own UTXO in inputs to satisfy in outputs a payment UTXO and a change UTXO (money returned to the same user).
 
-We therefore know that the observed user is probably no longer in possession of one of the two output UTXOs (the payment UTXO), but is still in possession of the other UTXO (the exchange UTXO).
+We therefore know that the observed user is probably no longer in possession of one of the two output UTXOs (the payment UTXO), but is still in possession of the other UTXO (the change UTXO).
 
 For the moment, we can't specify which output represents which UTXO, as this is not the purpose of the pattern study. We'll get there by relying on the heuristics we'll study in the following sections. At this stage, our objective is limited to identifying the nature of the transaction in question, which in this case is a simple send.
 
@@ -421,7 +421,7 @@ This second model is characterized by the consumption of a single UTXO as input 
 
 ![BTC204](assets/fr/035.webp)
 
-The interpretation of this model is that we are in the presence of a self-transfer. The user has transferred his bitcoins to himself, to another address belonging to him. Since there is no exchange on the transaction, it's highly unlikely that we're in the presence of a payment. Indeed, when a payment is made, it is almost impossible for the payer to have a UTXO corresponding exactly to the amount required by the seller, plus the transaction fee. In general, the payer is therefore obliged to produce an exchange output.
+The interpretation of this model is that we are in the presence of a self-transfer. The user has transferred his bitcoins to himself, to another address belonging to him. Since there is no change on the transaction, it's highly unlikely that we're in the presence of a payment. Indeed, when a payment is made, it is almost impossible for the payer to have a UTXO corresponding exactly to the amount required by the seller, plus the transaction fee. In general, the payer is therefore obliged to produce an exchange output.
 
 We then know that the observed user is probably still in possession of this UTXO. In the context of a chain analysis, if we know that the UTXO used as input to the transaction belongs to Alice, we can assume that the UTXO used as output also belongs to her. What will become interesting later on is to find transaction-internal heuristics that could reinforce this assumption (we'll look at these heuristics in chapter 3.3).
 
@@ -435,7 +435,7 @@ For example, here is a Bitcoin transaction that adopts the sweep pattern:
 
 Source : [Mempool.space](https://mempool.space/fr/tx/35f1072a0fda5ae106efb4fda871ab40e1f8023c6c47f396441ad4b995ea693d)
 
-Beware, however, that this type of pattern can also reveal a self-transfer to the account of a cryptocurrency exchange platform. It will be the study of known addresses and the context of the transaction that will tell us whether it's a swipe to a self-custody wallet or a withdrawal to a platform. Indeed, the addresses of exchange platforms are often easily identifiable.
+Be aware, however, that this type of pattern can also reveal a self-transfer to the account of a cryptocurrency exchange platform. It will be the study of known addresses and the context of the transaction that will tell us whether it's a sweep to a self-custody wallet or a deposit to a platform. Indeed, the addresses of exchange platforms are often easily identifiable.
 
 Let's take Alice's example again: if the scan leads to an address known to a platform (such as Binance, for example), this may mean that the bitcoins have been transferred out of Alice's direct possession, probably with the intention of selling them or storing them on this platform. On the other hand, if the destination address is unknown, it's reasonable to assume that it's simply another wallet still belonging to Alice. But this type of study is more in the category of heuristics than patterns.
 
@@ -447,7 +447,7 @@ This model is characterized by the consumption of several UTXOs at the input and
 
 The interpretation of this pattern is that we are in the presence of consolidation. This is a common practice among Bitcoin users, aimed at merging several UTXOs in anticipation of a possible increase in transaction fees. By performing this operation during a period when fees are low, it is possible to save on future fees. We'll talk more about this practice in chapter 4.3.
 
-We can deduce that the user behind this transaction model was probably in possession of all the UTXOs in input and is still in possession of the UTXO in output. So it's probably an auto-transfer.
+We can deduce that the user behind this transaction model was probably in possession of all the UTXOs in input and is still in possession of the UTXO in output. So it's probably a self-transfer.
 
 Like the sweep, this type of pattern can also reveal a self-transfer to the account of an exchange platform. It will be the study of known addresses and the context of the transaction that will tell us whether it's a consolidation to a self-custody portfolio or a withdrawal to a platform.
 
